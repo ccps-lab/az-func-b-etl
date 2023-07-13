@@ -84,7 +84,7 @@ def main(sensorsExcelBlob: func.InputStream):
         data_tmp = {
             'sensor_id' : np.repeat(sensor_id_tmp, int(number_measures)),
             'sensor_name' : np.repeat(sensor_name_tmp, int(number_measures)),
-            'consumption_measure': sensor_measure_tmp.values,
+            'consumption_measures': sensor_measure_tmp.values,
             'consumption_type' : np.repeat(sensor_consupmtion_type, int(number_measures)),
             'unit_of_measurement' : np.repeat(unit_of_measurement_tmp, int(number_measures)),
             'site' : np.repeat(site_tmp, int(number_measures))
