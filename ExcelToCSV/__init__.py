@@ -67,10 +67,11 @@ def main(sensorsExcelBlob: func.InputStream):
             site_tmp = re.findall('//(.*)/\d', str(sensor_info_tmp))
             site_tmp = ''.join(site_tmp)
             sensor_info_tmp_list = sensor_info_tmp.split('-')[1].split()
-            unit_of_measurement_tmp = sensor_info_tmp_list[-1]
-            sensor_id_tmp = '_'.join(sensor_info_tmp_list[:2])
-            sensor_name_tmp = sensor_info_tmp_list[1]
-            sensor_consupmtion_type = sensor_info_tmp_list[2]
+            if sensor_info_tmp_list[0][0].isalpha():
+             unit_of_measurement_tmp = sensor_info_tmp_list[-1]
+             sensor_id_tmp = '_'.join(sensor_info_tmp_list[:2])
+             sensor_name_tmp = sensor_info_tmp_list[1]
+             sensor_consupmtion_type = sensor_info_tmp_list[2]
         except Exception as e:
             logging.error(f"Cannot process the sensors data, ERROR: {e}")
 
